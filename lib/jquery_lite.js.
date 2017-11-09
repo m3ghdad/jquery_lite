@@ -65,11 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+const DomNodeCollection = __webpack_require__(1);
 
 window.$l = (arg) => {
-  if (typeof arg === 'string') {
-    getNode(arg);
+  // const domNode = new DomNodeCollection
+  if (typeof arg === HTMLElement) {
+    // if arg === instance of HTMLElement
+    htmlElements = [];
+    htmlElements.push(arg);
+    new DomNodeCollection (htmlElements);
+  }
+  else if (typeof arg === 'string') {
+    const htmlElements = getNode(arg);
+    new DomNodeCollection (htmlElements)
   }
 }
 
@@ -77,6 +87,31 @@ getNode = (selector) => {
   elementList = document.querySelectorAll(selector);
   nodeListArray = Array.from(elementList);
 }
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+class DOMNodeCollection {
+  constructor(elements) {
+    this.elements = elements;
+  }
+
+};
+
+
+
+//   elements.forEach( (element)=> {
+//     element = HTMLElement;
+//   })
+//   // for (let i = 0; i < elements.length; i++) {
+//   //   element = elements[i];
+//   //   element = HTMLElement;
+//   // }
+// }
+
+module.exports = DomNodeCollection;
 
 
 /***/ })
