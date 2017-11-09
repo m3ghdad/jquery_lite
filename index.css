@@ -1,0 +1,18 @@
+.psg-images {
+  display: flex;
+}
+
+ul li img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.psg-images li {
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+}
